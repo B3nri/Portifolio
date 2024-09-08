@@ -1,0 +1,186 @@
+/* Define as variáveis de cor para temas claro e escuro */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --link-color: #007bff;
+    --sidebar-bg-color: #f8f9fa;
+    --sidebar-text-color: #000000;
+    --sidebar-active-bg-color: #e9ecef;
+    --hero-text-color: #ffffff;
+    --hero-bg-color: #343a40;
+}
+
+[data-theme="dark"] {
+    --background-color: #343a40;
+    --text-color: #ffffff;
+    --link-color: #17a2b8;
+    --sidebar-bg-color: #212529;
+    --sidebar-text-color: #ffffff;
+    --sidebar-active-bg-color: #495057;
+    --hero-text-color: #ffffff;
+    --hero-bg-color: #343a40;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding-top: 56px; /* Espaço para o navbar fixo */
+}
+
+.hero-section {
+    position: relative;
+    height: 50vh;
+    background-color: var(--hero-bg-color);
+    background-image: url('img/sua-imagem-de-fundo.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hero-text-color);
+    overflow: hidden;
+}
+
+.hero-text {
+    text-align: center;
+    position: relative; /* Garante que o texto fique sobre a imagem */
+    z-index: 2; /* Garante que o texto apareça sobre a imagem */
+}
+
+.hero-text h1 {
+    font-size: 4rem; /* Aumenta o tamanho do texto */
+    margin: 0;
+    opacity: 0;
+    position: absolute; /* Faz com que os h1 fiquem sobrepostos */
+    width: 100%; /* Ajusta para o tamanho da div */
+    color: var(--hero-text-color); /* Cor do texto */
+    animation: fadeInOut 9s infinite; /* Adiciona a animação */
+    line-height: 1.2; /* Ajusta a altura da linha para melhor visualização */
+}
+
+@keyframes fadeInOut {
+    0%, 20% {
+        opacity: 1;
+    }
+    25%, 45% {
+        opacity: 0;
+    }
+    50%, 70% {
+        opacity: 1;
+    }
+    75%, 95% {
+        opacity: 0;
+    }
+}
+
+/* Estilo adicional para animar cada h1 em sequência */
+.hero-text h1:nth-child(1) {
+    animation-delay: 0s;
+}
+.hero-text h1:nth-child(2) {
+    animation-delay: 3s;
+}
+.hero-text h1:nth-child(3) {
+    animation-delay: 6s;
+}
+
+/* Estilos para a imagem estática */
+.hero-image {
+    position: absolute;
+    top: 0; /* Ajusta para cobrir o topo da div */
+    left: 0; /* Ajusta para cobrir o lado esquerdo da div */
+    width: 100%; /* Faz com que a imagem cubra a largura da div */
+    height: 100%; /* Faz com que a imagem cubra a altura da div */
+    object-fit: cover; /* Garante que a imagem cubra a área da div sem distorcer */
+    z-index: 1; /* Faz a imagem ficar atrás do texto */
+    pointer-events: none; /* Garante que a imagem não interfira com os eventos do usuário */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    height: 100vh;
+    padding: 2rem;
+    background-color: var(--sidebar-bg-color);
+    color: var(--sidebar-text-color);
+}
+
+.sidebar .nav-link {
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    color: var(--sidebar-text-color);
+}
+
+.sidebar .nav-link.active {
+    color: var(--link-color);
+    background-color: var(--sidebar-active-bg-color);
+}
+
+main {
+    margin-left: 250px; /* Ajuste conforme a largura do menu lateral */
+}
+
+h2 {
+    border-bottom: 2px solid var(--link-color);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Estilo para a foto do perfil */
+.profile-img {
+    width: 150px; /* Ajusta a largura da imagem */
+    height: 150px; /* Ajusta a altura da imagem */
+    border-radius: 50%; /* Faz a imagem ficar em formato circular */
+    object-fit: cover; /* Garante que a imagem se ajuste dentro do círculo sem distorcer */
+    border: 2px solid #ddd; /* Adiciona uma borda sutil ao redor da imagem (opcional) */
+}
+
+/* Estilo para o botão de alternância de tema */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.theme-toggle i {
+    font-size: 1.5rem;
+}
+
+
+/* Adicione o seguinte CSS para o footer */
+
+.footer {
+    background-color: var(--sidebar-bg-color); /* Cor de fundo igual à sidebar */
+    color: var(--sidebar-text-color); /* Cor do texto igual à sidebar */
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1000; /* Garante que o footer esteja acima do conteúdo */
+}
+
+/* Ajustes para garantir que o conteúdo não sobreponha o footer */
+body {
+    margin-bottom: 3rem; /* Adiciona espaço para o footer */
+}
